@@ -1,0 +1,27 @@
+drop database if exists voimin;
+create database voimin;
+
+drop table if exists users;
+create table users 
+(user_id serial primary key,user_name text not null,  
+mail_adress text not null,register_date Timestamp not null,
+status_id Integer not null);
+
+drop table if exists recordings;
+create table recordings 
+(recording_id serial primary key,user_id Integer not null,
+date Timestamp not null,title text not null,  
+content text not null,member text,
+remarks text,status_id Integer not null,
+update_date Timestamp,version Integer not null);
+
+drop table if exists status_memos;
+create table status_memos 
+(status_id serial primary key,status_name text not null);
+
+INSERT INTO status_memos(status_name)VALUES('公開');
+INSERT INTO status_memos(status_name)VALUES('停止');
+INSERT INTO status_memos(status_name)VALUES('削除');
+
+
+

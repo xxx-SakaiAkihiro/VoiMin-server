@@ -1,0 +1,20 @@
+spring:
+  # VSCodeのログの設定
+  output:
+   ansi:
+     enabled: always
+  # DBの設定(デプロイ時に変更)
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/voimin
+    username: postgres
+    password: postgres
+
+# ローカル環境での起動ポート番号の設定
+server:
+  port: 8080
+
+## 環境変数(デプロイ時に変更)
+##ローカル環境のOrigin
+environments:
+  originUrl: http://localhost:8888
