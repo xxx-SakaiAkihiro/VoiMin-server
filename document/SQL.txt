@@ -4,7 +4,7 @@ create database voimin;
 drop table if exists users;
 create table users 
 (user_id serial primary key,user_name text not null,  
-mail_adress text not null,register_date Timestamp not null,
+mail_address text not null,register_date Timestamp not null,
 status_id Integer not null);
 
 drop table if exists recordings;
