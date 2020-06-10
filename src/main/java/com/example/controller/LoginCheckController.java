@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.domain.User;
 import com.example.form.UserForm;
 import com.example.service.FindUserInfoService;
+import com.example.service.RegisterUserService;
 
 /**
- * ログイン時にユーザー確認を行うコントローラークラス
+ * ログイン時にユーザー確認を行うコントローラー.
  * 
  * @author sakai
  */
@@ -21,25 +22,26 @@ import com.example.service.FindUserInfoService;
 public class LoginCheckController {
 
 	@Autowired
-	private FindUserInfoService userService;
+	private FindUserInfoService findUserInfoService;
+	private RegisterUserService registerUserService;
 
 	/**
-	 * メールアドレスからログインユーザー情報を取得を取得するメソッド.
+	 * メールアドレスからユーザー情報を取得する.
 	 * 
-	 * @param param メールアドレス
-	 * @return ログインユーザー情報
+	 * @param userForm メールアドレス
+	 * @return ユーザ情報
 	 */
 	@RequestMapping("/loginCheck")
 	public User loginCheck(@RequestBody UserForm userForm) {
-		String check = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@rakus-partners.co.jp";
-		String check2 = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@rakus.co.jp";
-		Pattern pattern = Pattern.compile(check);
-		Pattern pattern2 = Pattern.compile(check2);
-		Matcher matcher = pattern.matcher(userForm.getMailAddress());
-		Matcher matcher2 = pattern2.matcher(userForm.getMailAddress());
-		
-		System.out.println(userService.findByMail(userForm.getMailAddress()));
-		return userService.findByMail(userForm.getMailAddress());
+		User loginCheck = findUserInfoService.findByMail(userForm.getMailAddress());
+		System.out.println("１："+loginCheck);
+		System.out.println("外"+userForm);
+		if (loginCheck == null) {
+			System.out.println("中"+userForm);
+			registerUserService.registerUser(userForm);
+			return registerUserService.select(userForm);
+		} else {
+			return loginCheck;
+		}
 	}
-
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.User;
+import com.example.form.UserForm;
 import com.example.mapper.UserMapper;
 
 /**
@@ -27,18 +28,7 @@ public class FindUserInfoService {
 	 * @return ユーザ情報
 	 */
 	public User findByMail(String mail) {
-		User loginUser = new User();
-		try {
-			loginUser = userMapper.findByMail(mail);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		// ユーザー情報がない(nullだった)場合
-//		if (loginUser == null) {
-//		}
-
-		// ユーザー情報がある場合
-		return loginUser;
+		return userMapper.findByMail(mail);
 	}
 
 }

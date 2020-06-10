@@ -11,16 +11,8 @@ import com.example.domain.User;
  *
  */
 @Mapper
-public interface UserMapper {
+public interface RegisterUserMapper {
 
-	/**
-	 * メールアドレスからユーザー情報を取得する.
-	 * 
-	 * @param mail メール
-	 * @return ユーザー情報
-	 */
-	public User findByMail(String mail);
-	
 	
 	/**
 	 * ユーザー情報を登録する.
