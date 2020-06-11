@@ -23,6 +23,8 @@ public class LoginCheckController {
 
 	@Autowired
 	private FindUserInfoService findUserInfoService;
+
+	@Autowired
 	private RegisterUserService registerUserService;
 
 	/**
@@ -33,15 +35,30 @@ public class LoginCheckController {
 	 */
 	@RequestMapping("/loginCheck")
 	public User loginCheck(@RequestBody UserForm userForm) {
-		User loginCheck = findUserInfoService.findByMail(userForm.getMailAddress());
-		System.out.println("１："+loginCheck);
-		System.out.println("外"+userForm);
-		if (loginCheck == null) {
-			System.out.println("中"+userForm);
-			registerUserService.registerUser(userForm);
-			return registerUserService.select(userForm);
+		String check = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@rakus-partners.co.jp";
+		String check2 = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@rakus.co.jp";
+		Pattern pattern = Pattern.compile(check);
+		Pattern pattern2 = Pattern.compile(check2);
+		Matcher matcher = pattern.matcher(userForm.getMailAddress());
+		Matcher matcher2 = pattern2.matcher(userForm.getMailAddress());
+
+		if (matcher.matches() || matcher2.matches()) {
+			/** ユーザ情報の取得 */
+			User loginCheck = findUserInfoService.findByMail(userForm.getMailAddress());
+			/** ユーザ情報がない場合 */
+			if (loginCheck == null) {
+				/** ユーザ情報を登録する */
+				registerUserService.registerUser(userForm);
+				return findUserInfoService.findByMail(userForm.getMailAddress());
+			} else {
+				/** ユーザ情報がある場合 */
+				return loginCheck;
+			}
 		} else {
-			return loginCheck;
+			/** 組織外ユーザーによるログインであった場合 */
+			User user = new User();
+			user.setStatusId(2);
+			return user;
 		}
 	}
 }

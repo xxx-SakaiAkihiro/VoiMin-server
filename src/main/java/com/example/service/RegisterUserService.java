@@ -2,7 +2,6 @@ package com.example.service;
 
 import java.sql.Timestamp;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +22,7 @@ public class RegisterUserService {
 
 	@Autowired
 	private UserMapper userMapper;
-	
-	
+
 	/**
 	 * ユーザー情報を登録する.
 	 * 
@@ -39,12 +37,5 @@ public class RegisterUserService {
 		user.setRegisterDate(tsDate);
 		user.setStatusId(1);
 		userMapper.registerUser(user); // usersテーブルに挿入
-//		User returnUser  = userMapper.findByMail(userForm.getMailAddress());
-//		return returnUser;
-	}
-	
-	public User select(UserForm userForm) {
-		User returnUser  = userMapper.findByMail(userForm.getMailAddress());
-		return returnUser;
 	}
 }

@@ -23,8 +23,9 @@
 	</select>
 
 	<insert id="registerUser">
-		INSERT INTO users(user_name, mail_address, register_date, status_id)
-		VALUES(#{userName}, #{mailAddress}, #{registerDate}, #{statusId});
+		INSERT INTO users(user_name, mail_address,
+		register_date, status_id) VALUES(#{userName}, #{mailAddress},
+		#{registerDate}, #{statusId});
 	</insert>
 
 </mapper>
