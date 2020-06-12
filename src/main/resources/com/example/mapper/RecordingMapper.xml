@@ -3,6 +3,42 @@
 
 <mapper namespace="com.example.mapper.RecordingMapper">
 
+	<resultMap type="com.example.domain.Recording"
+		id="RecordingResultMap">
+		<id property="recordingId" column="recording_id" />
+		<result property="userId" column="user_id" />
+		<result property="date" column="date" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="member" column="member" />
+		<result property="remarks" column="remarks" />
+		<result property="statusId" column="status_id" />
+		<result property="updateDate" column="update_date" />
+		<result property="version" column="version" />
+	</resultMap>
+
+	<select id="findByUserIdAndStausId"
+		resultMap="RecordingResultMap" parameterType="Integer">
+		SELECT
+		recording_id,
+		user_id,
+		date,
+		title,
+		content,
+		member,
+		remarks,
+		status_id,
+		update_date,
+		version
+		FROM recordings
+		WHERE
+		user_id = #{userId} AND status_id = #{statusId}
+		ORDER BY
+		date
+		DESC;
+	</select>
+
+
 	<insert id="registerRecording">
 		INSERT INTO recordings(user_id, date, title,
 		content,member,remarks,status_id,update_date,version)

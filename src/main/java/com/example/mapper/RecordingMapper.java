@@ -1,5 +1,7 @@
 package com.example.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.domain.Recording;
@@ -12,12 +14,20 @@ import com.example.domain.Recording;
  */
 @Mapper
 public interface RecordingMapper {
-	
+	/**
+	 * userIdとstatusIdで絞り込みrecordingListをSELECTする.
+	 * 
+	 * @param userId
+	 * @param statusId
+	 * @return 録音記録
+	 */
+	public List<Recording> findByUserIdAndStausId(Integer userId, Integer statusId);
+
 	/**
 	 * 議事録内容を登録する.
 	 * 
 	 * @param recording 議事録内容
 	 */
-	public  void registerRecording(Recording recording);
+	public void registerRecording(Recording recording);
 
 }
