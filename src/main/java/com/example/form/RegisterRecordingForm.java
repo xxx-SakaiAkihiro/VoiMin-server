@@ -1,23 +1,23 @@
-package com.example.domain;
+package com.example.form;
 
 import java.sql.Timestamp;
 
 import lombok.Data;
 
 /**
- * 録音のドメインクラス.
+ * 議事録内容などを登録するフォーム.
  * 
- * @author sakai
+ * @author riho.ikeda
  *
  */
 @Data
-public class Recording {
+public class RegisterRecordingForm {
 
 	/** 録音ID */
 	private Integer recordingId;
 	/** ユーザーID */
 	private Integer userId;
-	/** 登録日付 */
+	/** 登録日時 */
 	private Timestamp date;
 	/** タイトル */
 	private String title;
@@ -33,5 +33,5 @@ public class Recording {
 	private Timestamp updateDate;
 	/** バージョン */
 	private Integer version;
-	
+
 }
