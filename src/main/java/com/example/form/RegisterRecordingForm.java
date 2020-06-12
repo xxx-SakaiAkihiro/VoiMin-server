@@ -2,6 +2,8 @@ package com.example.form;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.Data;
 
 /**
@@ -20,6 +22,7 @@ public class RegisterRecordingForm {
 	/** 登録日時 */
 	private Timestamp date;
 	/** タイトル */
+	@NotBlank
 	private String title;
 	/** 内容 */
 	private String content;
