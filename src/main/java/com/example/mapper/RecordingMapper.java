@@ -11,7 +11,7 @@ import com.example.domain.Recording;
  *
  */
 @Mapper
-public interface RegisterRecordingMapper {
+public interface RecordingMapper {
 	
 	/**
 	 * 議事録内容を登録する.

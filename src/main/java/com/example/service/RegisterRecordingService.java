@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Recording;
 import com.example.form.RegisterRecordingForm;
-import com.example.mapper.RegisterRecordingMapper;
+import com.example.mapper.RecordingMapper;
 
 /**
  * 議事録内容を登録するサービス.
@@ -23,7 +23,7 @@ import com.example.mapper.RegisterRecordingMapper;
 public class RegisterRecordingService {
 	
 	@Autowired
-	private RegisterRecordingMapper registerRecordingMapper;
+	private RecordingMapper registerRecordingMapper;
 	
 	
 	/**

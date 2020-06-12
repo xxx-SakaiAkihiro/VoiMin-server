@@ -14,7 +14,6 @@ import com.example.service.RegisterRecordingService;
  *
  */
 @RestController
-@RequestMapping("")
 public class RegisterRecordingController {
 
 	@Autowired
