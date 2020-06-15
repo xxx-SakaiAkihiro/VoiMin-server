@@ -3,9 +3,12 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Recording;
+import com.example.form.FindRecordingForm;
 import com.example.service.FindRecordingService;
 
 /**
@@ -26,8 +29,9 @@ public class FindRecordingCntroller {
 	 * @param userId
 	 * @return 録音記録
 	 */
-	public List<Recording> findRecording(Integer userId) {
-		return findRecordingService.findRecording(userId);
+	@RequestMapping("/findRecording")
+	public List<Recording> findRecording(@RequestBody FindRecordingForm findRecordingForm) {
+		return findRecordingService.findRecording(findRecordingForm.getUserId());
 	}
 
 }
