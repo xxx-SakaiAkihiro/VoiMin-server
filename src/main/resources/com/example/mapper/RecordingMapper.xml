@@ -32,7 +32,8 @@
 		version
 		FROM recordings
 		WHERE
-		user_id = #{userId} AND status_id = #{statusId}
+		user_id = #{userId} AND status_id =
+		#{statusId}
 		ORDER BY
 		date
 		DESC;
@@ -46,4 +47,12 @@
 		#{member},#{remarks},#{statusId},#{updateDate},#{version});
 	</insert>
 
+	<select id="delete">
+		UPDATE recordings SET 
+		status_id = #{statusId},
+		update_date = #{updateDate},
+		version = version+1 
+		WHERE recording_id=#{recordingId};
+	</select>
+	
 </mapper>

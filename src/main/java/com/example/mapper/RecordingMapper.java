@@ -30,4 +30,11 @@ public interface RecordingMapper {
 	 */
 	public void registerRecording(Recording recording);
 
+	/**
+	 * 録音記録を論理削除する.
+	 * 
+	 * @param recordingId
+	 */
+	public void delete(Recording recording);
+
 }
