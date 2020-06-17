@@ -13,7 +13,7 @@ import lombok.Data;
  *
  */
 @Data
-public class RegisterRecordingForm {
+public class RecordingForm {
 
 	/** 録音ID */
 	private Integer recordingId;

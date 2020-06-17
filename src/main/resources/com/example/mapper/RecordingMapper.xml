@@ -39,7 +39,6 @@
 		DESC;
 	</select>
 
-
 	<insert id="registerRecording">
 		INSERT INTO recordings(user_id, date, title,
 		content,member,remarks,status_id,update_date,version)
@@ -48,11 +47,25 @@
 	</insert>
 
 	<select id="delete">
-		UPDATE recordings SET 
+		UPDATE recordings SET
 		status_id = #{statusId},
 		update_date = #{updateDate},
-		version = version+1 
-		WHERE recording_id=#{recordingId};
+		version = version+1
+		WHERE
+		recording_id=#{recordingId};
 	</select>
-	
+
+	<update id="update">
+		UPDATE recordings
+		SET
+		title = #{title},
+		member = #{member},
+		remarks = #{remarks},
+		content = #{content},
+		update_date = #{updateDate},
+		version = version+1
+		WHERE
+		recording_id=#{recordingId};
+	</update>
+
 </mapper>

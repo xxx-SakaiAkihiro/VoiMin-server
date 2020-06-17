@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Recording;
-import com.example.form.RegisterRecordingForm;
+import com.example.form.RecordingForm;
 import com.example.mapper.RecordingMapper;
 
 /**
@@ -31,7 +31,7 @@ public class RegisterRecordingService {
 	 * 
 	 * @param recording 議事録内容
 	 */
-	public void registerRecording(RegisterRecordingForm registerRecordingForm) {
+	public void registerRecording(RecordingForm registerRecordingForm) {
 		Timestamp tsDate = new Timestamp(System.currentTimeMillis()); // 現在時刻を生成
 		Recording recording = new Recording();
 		

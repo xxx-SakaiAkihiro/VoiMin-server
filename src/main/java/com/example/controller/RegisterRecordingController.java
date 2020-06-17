@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.form.RegisterRecordingForm;
+import com.example.form.RecordingForm;
 import com.example.service.RegisterRecordingService;
 
 /**
@@ -25,7 +25,7 @@ public class RegisterRecordingController {
 	 * @param registerRecordingForm 議事録内容
 	 */
 	@RequestMapping("/registerRecording")
-	public void registerRecording(@RequestBody RegisterRecordingForm registerRecordingForm) {
+	public void registerRecording(@RequestBody RecordingForm registerRecordingForm) {
 		registerRecordingService.registerRecording(registerRecordingForm);
 	}
 	

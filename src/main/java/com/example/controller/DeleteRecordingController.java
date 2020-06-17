@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.form.DeleteRecordingForm;
+
+import com.example.form.RecordingForm;
 import com.example.service.DeleteRecordingService;
 
 /**
@@ -25,8 +26,8 @@ public class DeleteRecordingController {
 	 * @param deleteRecordingForm
 	 */
 	@RequestMapping("/delete")
-	public void delete(@RequestBody DeleteRecordingForm deleteRecordingForm) {
-		deleteRecordingService.delete(deleteRecordingForm.getRecordingId());
+	public void delete(@RequestBody RecordingForm recordingForm) {
+		deleteRecordingService.delete(recordingForm.getRecordingId());
 	}
 
 }

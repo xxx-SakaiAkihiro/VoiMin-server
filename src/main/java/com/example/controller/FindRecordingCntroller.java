@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Recording;
-import com.example.form.FindRecordingForm;
+import com.example.form.RecordingForm;
 import com.example.service.FindRecordingService;
 
 /**
@@ -30,8 +30,8 @@ public class FindRecordingCntroller {
 	 * @return 録音記録
 	 */
 	@RequestMapping("/findRecording")
-	public List<Recording> findRecording(@RequestBody FindRecordingForm findRecordingForm) {
-		return findRecordingService.findRecording(findRecordingForm.getUserId());
+	public List<Recording> findRecording(@RequestBody RecordingForm recordingForm) {
+		return findRecordingService.findRecording(recordingForm.getUserId());
 	}
 
 }

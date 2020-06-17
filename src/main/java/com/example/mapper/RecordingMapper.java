@@ -1,5 +1,6 @@
 package com.example.mapper;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -37,4 +38,16 @@ public interface RecordingMapper {
 	 */
 	public void delete(Recording recording);
 
+	/**
+	 * 録音記録を更新する.
+	 * 
+	 * @param title       タイトル
+	 * @param member      メンバー
+	 * @param remarks     備考
+	 * @param content     投稿内容
+	 * @param updateDate  更新日時
+	 * @param recordingId 投稿ID
+	 */
+	public void update(String title, String member, String remarks, String content, Timestamp updateDate,
+			Integer recordingId);
 }
