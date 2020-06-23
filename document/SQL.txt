@@ -25,4 +25,13 @@ INSERT INTO status_memos(status_name)VALUES('停止');
 INSERT INTO status_memos(status_name)VALUES('削除');
 
 
+drop table if exists passwords;
+create table passwords
+(password_id serial primary key,
+ mail_address text not null,
+ password text not null,
+ register_date timestamp not null);
+
+
+
 

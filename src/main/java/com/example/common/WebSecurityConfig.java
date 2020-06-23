@@ -1,6 +1,9 @@
 package com.example.common;
 
 
+import static com.example.common.SecurityConstants.LOGIN_URL;
+import static com.example.common.SecurityConstants.SIGNUP_URL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.configurationSource(corsConfigrationSourceForLogin())
 		.and()
 		.authorizeRequests()//パスの書き方。コントローラのパスとメソッドのパス
-		.antMatchers("/","/loginCheck").permitAll()
+		.antMatchers("/","/loginCheck",SIGNUP_URL, LOGIN_URL).permitAll()
 		.anyRequest().authenticated().and().logout().and().csrf().disable()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager(), bCryptPasswordEncoder()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager())).sessionManagement()
