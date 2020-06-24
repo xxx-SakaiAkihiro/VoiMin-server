@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.authorizeRequests()//パスの書き方。コントローラのパスとメソッドのパス
 		.antMatchers("/","/loginCheck",SIGNUP_URL, LOGIN_URL).permitAll()
+		.antMatchers("/delete","/edit","/findRecording","/registerRecording").hasRole("USER")
 		.anyRequest().authenticated().and().logout().and().csrf().disable()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager(), bCryptPasswordEncoder()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager())).sessionManagement()

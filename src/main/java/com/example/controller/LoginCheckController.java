@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.domain.User;
 import com.example.form.UserForm;
 import com.example.service.FindUserInfoService;
-//import com.example.service.RegisterPasswordService;
 import com.example.service.RegisterUserService;
 
 /**
@@ -29,8 +28,7 @@ public class LoginCheckController {
 	@Autowired
 	private RegisterUserService registerUserService;
 	
-//	@Autowired
-//	private RegisterPasswordService registerPasswordService;
+
 	
 
 	/**
