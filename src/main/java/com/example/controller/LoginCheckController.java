@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.regex.Matcher;
+
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.domain.User;
 import com.example.form.UserForm;
 import com.example.service.FindUserInfoService;
+//import com.example.service.RegisterPasswordService;
 import com.example.service.RegisterUserService;
 
 /**
@@ -26,6 +28,10 @@ public class LoginCheckController {
 
 	@Autowired
 	private RegisterUserService registerUserService;
+	
+//	@Autowired
+//	private RegisterPasswordService registerPasswordService;
+	
 
 	/**
 	 * メールアドレスからユーザー情報を取得する.
