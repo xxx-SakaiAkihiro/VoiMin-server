@@ -3,12 +3,19 @@ spring:
   output:
    ansi:
      enabled: always
-  # DBの設定(デプロイ時に変更)
+  # DBの設定(ローカル)
+#  datasource:
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/voimin
+#    username: postgres
+#    password: postgres
+    
+    # DBの設定(デプロイ)
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/voimin
-    username: postgres
-    password: postgres
+    url: spring.datasource.url=jdbc:postgresql://ec2-3-216-129-140.compute-1.amazonaws.com:5432/drckqtqd2a7l7?sslmode=require
+    username: pvscnadstxqjdn
+    password: 27159c342868a1fd344cd8b36f82fa07709cf2afc0dc889f65e2ab894594abf6
 
 # ローカル環境での起動ポート番号の設定
 server:
