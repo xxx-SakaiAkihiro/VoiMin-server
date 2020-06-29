@@ -22,6 +22,8 @@ server:
   port: 8080
 
 ## 環境変数(デプロイ時に変更)
-##ローカル環境のOrigin
 environments:
-  originUrl: http://localhost:8888
+##ローカル環境のOrigin
+#  originUrl: http://localhost:8888
+##デプロイ環境のOrigin
+  originUrl: https://voimin-front.web.app
